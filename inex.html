@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightgray;
+        }
+
+        .form-box {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            background: white;
+            border: 2px solid black;
+        }
+
+        input {
+            width: 100%;
+            margin: 5px 0;
+            padding: 8px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px;
+            width: 100%;
+        }
+    </style>
+
+    <script>
+        function validateForm() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+
+            let userError = "";
+            let passError = "";
+
+            // Username validation
+            if (username == "") {
+                userError = "Username cannot be empty";
+            }
+
+            // Password validation
+            if (password == "") {
+                passError = "Password cannot be empty";
+            } else if (password.length < 6) {
+                passError = "Password must be at least 6 characters";
+            }
+
+            document.getElementById("userError").innerHTML = userError;
+            document.getElementById("passError").innerHTML = passError;
+
+            // Prevent form submission if errors exist
+            if (userError != "" || passError != "") {
+                return false;
+            }
+
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="form-box">
+    <h2>Login Form</h2>
+
+    <form onsubmit="return validateForm()">
+        <label>Username:</label>
+        <input type="text" id="username">
+        <div id="userError" class="error"></div>
+
+        <label>Password:</label>
+        <input type="password" id="password">
+        <div id="passError" class="error"></div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>
