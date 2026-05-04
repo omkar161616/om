@@ -3,6 +3,36 @@
 <head>
     <title>Form Validation</title>
 
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightblue;
+        }
+
+        .box {
+            width: 250px;
+            margin: 100px auto;
+            padding: 15px;
+            background: white;
+            border: 2px solid black;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            margin: 5px 0;
+            padding: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: gray;
+            color: white;
+        }
+    </style>
+
     <script>
         function validate() {
             var u = document.getElementById("u").value;
@@ -30,11 +60,19 @@
 
 <body>
 
-<form onsubmit="return validate()">
-    Username: <input type="text" id="u"><br><br>
-    Password: <input type="password" id="p"><br><br>
-    <input type="submit" value="Submit">
-</form>
+<div class="box">
+    <h2>Login</h2>
+
+    <form onsubmit="return validate()">
+        Username:
+        <input type="text" id="u">
+
+        Password:
+        <input type="password" id="p">
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
 
 </body>
-</html>      
+</html>         
